@@ -1,0 +1,6 @@
+*
+!serenity/Toolchain
+!serenity/AK
+!serenity/Kernel
+!serenity/Userland
+!serenity/Ports

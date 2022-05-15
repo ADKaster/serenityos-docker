@@ -1,0 +1,17 @@
+# syntax=docker/dockerfile:1
+FROM adkaster/serenityos:base
+
+WORKDIR /serenity
+
+COPY serenity .
+
+RUN cd Toolchain \
+    && ./BuildClang.sh \
+    && ./BuildQemu.sh \
+    && ./BuildPython.sh \
+    && ./BuildMold.sh \
+    && cd ../ \
+    && mv Toolchain/Local /tmp \
+    && rm -rf ./* \
+    && mkdir Toolchain \
+    && mv /tmp/Local Toolchain
